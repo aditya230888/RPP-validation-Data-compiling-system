@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retro Biotech RPP40 Validation</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 200px;
+        }
+
+        h1 {
+            font-size: 100px;
+            color: #FF0000;
+        }
+
+        h2, p {
+            text-align: center;
+        }
+        footer {
+            margin-top: 450px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 50px; color: purple;">Retro Biotech RPP40 Validation</h1>
+    <h2 style="font-size: 24px; color: blue;">Data Compiling System</h2>
+    <h3>Upload Excel File</h3>
+    
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    
+    {% if success %}
+    <p style="color: green;">{{ success }}</p>
+    {% endif %}
+    {% if success %}
+  <div class="alert alert-success">
+    {{ success }}
+  </div>
+{% endif %}
+
+{% if file_size %}
+  <p>File Size: {{ file_size }} bytes</p>
+{% endif %}
+
+{% if html_table %}
+  <div class="table-responsive">
+    {{ html_table | safe }}
+  </div>
+{% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+      <div>
+        <label for="save_directory">Save Directory:</label>
+        <input type="text" id="save_directory" name="save_directory">
+      </div>
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>    
+    <footer>
+        Designed and developed by Appalion Soft
+    </footer>
+</body>
+</html>
